@@ -1,0 +1,31 @@
+question,correct_answer,source
+How many attention heads does the base Transformer model use?,8,transformer
+How many identical layers are in the Transformer encoder?,6,transformer
+What is the model dimension (d_model) of the base Transformer?,512,transformer
+What BLEU score did the big Transformer reach on WMT 2014 English-to-German translation?,28.4,transformer
+How does the Transformer give the model information about word order?,Positional encodings using sine and cosine functions,transformer
+What are the two pre-training tasks used for BERT?,Masked language model and next sentence prediction,bert
+How many parameters does BERT-base have?,110 million,bert
+How many layers does BERT-large have?,24,bert
+What percentage of tokens does BERT mask in its masked language model task?,15%,bert
+Which datasets was BERT pre-trained on?,BooksCorpus and English Wikipedia,bert
+How many parameters does the largest GPT-3 model have?,175 billion,gpt3
+What is the context window size of GPT-3?,2048 tokens,gpt3
+How does GPT-3 perform tasks in the few-shot setting?,"It is given a few examples in the prompt, with no gradient updates or fine-tuning",gpt3
+How many model sizes did the GPT-3 paper train?,"8, from 125 million to 175 billion parameters",gpt3
+What does LoRA freeze during fine-tuning?,The pre-trained model weights,lora
+What does LoRA inject into each layer of the Transformer?,Trainable low-rank decomposition matrices,lora
+By how much does LoRA reduce the number of trainable parameters compared to fine-tuning GPT-3 175B?,About 10000 times,lora
+How much did LoRA reduce VRAM use when training GPT-3 175B?,From 1.2TB to 350GB,lora
+Which attention weight matrices does LoRA adapt in its main experiments?,The query and value projection matrices,lora
+What two types of memory does RAG combine?,"Parametric memory (a pre-trained seq2seq model) and non-parametric memory (a dense vector index of Wikipedia)",rag
+What is the difference between RAG-Sequence and RAG-Token?,"RAG-Sequence uses the same retrieved document for the whole output, while RAG-Token can use a different document for each token",rag
+How is the Wikipedia knowledge source split in RAG?,"Into 100-word chunks, giving about 21 million documents",rag
+Which model does RAG use as its generator?,BART,rag
+What parameter sizes were the released Llama 2 models?,"7B, 13B and 70B",llama2
+How many tokens was Llama 2 pretrained on?,2 trillion tokens,llama2
+What is the context length of Llama 2?,4096 tokens,llama2
+Which attention technique do the larger Llama 2 models use to improve inference scalability?,Grouped-query attention (GQA),llama2
+Who won the 2018 football World Cup?,Not found in documents,none
+What is the capital of Australia?,Not found in documents,none
+What is a good recipe for chocolate cake?,Not found in documents,none

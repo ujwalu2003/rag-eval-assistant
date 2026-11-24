@@ -1,0 +1,43 @@
+question,expected,got,off_topic,retrieval_hit,correct
+How many attention heads does the base Transformer model use?,8,8,False,1.0,1
+How many identical layers are in the Transformer encoder?,6,6,False,1.0,1
+What is the model dimension (d_model) of the base Transformer?,512,512,False,1.0,1
+What BLEU score did the big Transformer reach on WMT 2014 English-to-German translation?,28.4,28.4,False,1.0,1
+How does the Transformer give the model information about word order?,Positional encodings using sine and cosine functions,"The Transformer injects word‑order information by adding **positional encodings** to the token embeddings.  
+In the base model these are sinusoidal positional encodings, and in experiments they also replace them with learned positional embeddings. These encodings are summed with the word embeddings before being fed into the encoder and decoder stacks, giving the model a sense of the relative positions of words.",False,1.0,1
+What are the two pre-training tasks used for BERT?,Masked language model and next sentence prediction,"The two pre‑training tasks used for BERT are:
+
+1. **Masked Language Modeling (Masked LM)**  
+2. **Next Sentence Prediction (NSP)**",False,1.0,1
+How many parameters does BERT-base have?,110 million,110 million parameters.,False,1.0,1
+How many layers does BERT-large have?,24,24,False,1.0,1
+What percentage of tokens does BERT mask in its masked language model task?,15%,15% of the tokens are masked.,False,1.0,1
+Which datasets was BERT pre-trained on?,BooksCorpus and English Wikipedia,"BERT was pre‑trained on the BooksCorpus (≈800 M words) and English Wikipedia (≈2,500 M words).",False,1.0,1
+How many parameters does the largest GPT-3 model have?,175 billion,175 billion parameters.,False,1.0,1
+What is the context window size of GPT-3?,2048 tokens,4096 tokens.,False,1.0,0
+How does GPT-3 perform tasks in the few-shot setting?,"It is given a few examples in the prompt, with no gradient updates or fine-tuning","In the few‑shot setting GPT‑3 shows strong performance.  For example, on a typical benchmark it reaches **86.4 % accuracy**, an improvement of more than **18 % over the previous state‑of‑the‑art**.  Its few‑shot accuracy also rises noticeably with model size – the largest GPT‑3 model gains about **10 %** over its smaller counterpart, whereas the smallest model actually drops by almost **20 %**.  
+
+On WebQuestions, GPT‑3 attains **41.5 %** in the few‑shot setting (compared to **14.4 %** zero‑shot and **25.3 %** one‑shot).  This few‑shot result is close to the performance of a fine‑tuned T5‑11B+SSM model (44.7 %).  Overall, few‑shot learning consistently outperforms zero‑shot and one‑shot, indicating that providing a handful of demonstrations is crucial for GPT‑3 to recognize and solve the task.",False,1.0,0
+How many model sizes did the GPT-3 paper train?,"8, from 125 million to 175 billion parameters",8 model sizes.,False,1.0,1
+What does LoRA freeze during fine-tuning?,The pre-trained model weights,"LoRA freezes the original shared model weights (i.e., all of the pre‑trained parameters) and only trains the injected low‑rank matrices A and B.",False,1.0,1
+What does LoRA inject into each layer of the Transformer?,Trainable low-rank decomposition matrices,LoRA injects a low‑rank update matrix into each layer of the Transformer.,False,1.0,1
+By how much does LoRA reduce the number of trainable parameters compared to fine-tuning GPT-3 175B?,About 10000 times,"LoRA reduces the number of trainable parameters by up to **10,000×** compared to full fine‑tuning of GPT‑3 175B.",False,1.0,1
+How much did LoRA reduce VRAM use when training GPT-3 175B?,From 1.2TB to 350GB,LoRA cut the VRAM needed for GPT‑3 175B training from about **1.2 TB down to roughly 350 GB** – a savings of roughly **850 GB** (≈3.4× less).,False,1.0,1
+Which attention weight matrices does LoRA adapt in its main experiments?,The query and value projection matrices,LoRA’s main experiments adapt the **query (Wq) and value (Wv) weight matrices** of the self‑attention module (while keeping the MLP weights frozen).,False,1.0,1
+What two types of memory does RAG combine?,Parametric memory (a pre-trained seq2seq model) and non-parametric memory (a dense vector index of Wikipedia),RAG combines **parametric memory** and **non‑parametric memory**.,False,1.0,1
+What is the difference between RAG-Sequence and RAG-Token?,"RAG-Sequence uses the same retrieved document for the whole output, while RAG-Token can use a different document for each token","RAG‑Sequence and RAG‑Token differ in how they use the retrieved documents when generating an answer:
+
+* **RAG‑Sequence** treats the retrieved document as a single latent variable for the entire output. The same top‑K documents are used to compute the probability of the whole sequence, and the model marginalises over those documents once for the whole sequence.
+
+* **RAG‑Token** allows a different latent document to be drawn for each target token. The generator can choose content from different documents at each step, and the marginalisation is performed token‑by‑token.
+
+In the special case of sequence‑classification tasks (where the target is a single token), the two variants become equivalent.",False,1.0,1
+How is the Wikipedia knowledge source split in RAG?,"Into 100-word chunks, giving about 21 million documents","The Wikipedia dump is split into disjoint 100‑word chunks, producing about 21 million documents.",False,1.0,1
+Which model does RAG use as its generator?,BART,RAG uses a BART model as its generator.,False,1.0,1
+What parameter sizes were the released Llama 2 models?,"7B, 13B and 70B","The released Llama 2 models were available in the following parameter sizes: **7 B, 13 B, and 70 B**.",False,1.0,1
+How many tokens was Llama 2 pretrained on?,2 trillion tokens,Llama 2 was pretrained on **2.0 trillion tokens**.,False,1.0,1
+What is the context length of Llama 2?,4096 tokens,"The context length of Llama 2 is 4,096 tokens.",False,1.0,1
+Which attention technique do the larger Llama 2 models use to improve inference scalability?,Grouped-query attention (GQA),Grouped‑query attention (GQA).,False,1.0,1
+Who won the 2018 football World Cup?,Not found in documents,Not found in documents.,True,,1
+What is the capital of Australia?,Not found in documents,,True,,0
+What is a good recipe for chocolate cake?,Not found in documents,,True,,0

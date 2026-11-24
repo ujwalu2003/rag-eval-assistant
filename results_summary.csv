@@ -1,0 +1,8 @@
+version,hit_rate,accuracy,refusal_rate
+baseline,85.2,70.4,100.0
+baseline_v2,100.0,66.7,100.0
+k8_run1,100.0,88.9,100.0
+k8_run2,100.0,92.6,33.3
+rerank_k4,100.0,77.8,100.0
+
+k8_strict,100.0,92.6,100.0

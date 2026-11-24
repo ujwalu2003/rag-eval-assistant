@@ -1,0 +1,52 @@
+question,expected,got,off_topic,retrieval_hit,correct
+How many attention heads does the base Transformer model use?,8,The base Transformer model uses **8 attention heads**.,False,1.0,1
+How many identical layers are in the Transformer encoder?,6,The Transformer encoder contains **6 identical layers**.,False,1.0,1
+What is the model dimension (d_model) of the base Transformer?,512,The base Transformer uses a model dimension \(d_{\text{model}}\) of **512**.,False,1.0,1
+What BLEU score did the big Transformer reach on WMT 2014 English-to-German translation?,28.4,The big Transformer achieved a BLEU score of **28.4** on the WMT 2014 English‑to‑German translation task.,False,1.0,1
+How does the Transformer give the model information about word order?,Positional encodings using sine and cosine functions,"The Transformer injects word‑order information by adding a **positional encoding** to each token’s embedding.  
+In the base model these encodings are sinusoidal functions of the position, and in the variant (E) they are learned positional embeddings. The sum of the token embedding and its positional encoding is then fed into the encoder and decoder stacks, allowing the self‑attention layers to distinguish the order of words.",False,1.0,1
+What are the two pre-training tasks used for BERT?,Masked language model and next sentence prediction,"The two pre‑training tasks used for BERT are:
+
+1. **Masked Language Modeling (MLM)** – predicting masked tokens in a sentence.  
+2. **Next Sentence Prediction (NSP)** – determining whether a second sentence follows the first in the original text.",False,1.0,1
+How many parameters does BERT-base have?,110 million,BERT‑base has 110 million trainable parameters.,False,1.0,1
+How many layers does BERT-large have?,24,BERT‑Large has 24 layers.,False,1.0,1
+What percentage of tokens does BERT mask in its masked language model task?,15%,BERT masks **15 %** of the tokens in its masked language model task.,False,1.0,1
+Which datasets was BERT pre-trained on?,BooksCorpus and English Wikipedia,"BERT was pre‑trained on two datasets:
+
+1. **BooksCorpus** – about 800 million words.  
+2. **English Wikipedia** – about 2,500 million words.",False,1.0,1
+How many parameters does the largest GPT-3 model have?,175 billion,175 billion parameters.,False,1.0,1
+What is the context window size of GPT-3?,2048 tokens,Not found in documents.,False,1.0,0
+How does GPT-3 perform tasks in the few-shot setting?,"It is given a few examples in the prompt, with no gradient updates or fine-tuning","In the few‑shot setting GPT‑3 shows strong, size‑dependent performance.  
+* On the broad benchmark it reaches **86.4 % accuracy**, an improvement of more than **18 % over the previous state‑of‑the‑art**.  
+* Accuracy rises noticeably with model size – the smallest model drops about 20 % in few‑shot accuracy, whereas the 175‑billion‑parameter GPT‑3 gains roughly **10 %**.  
+* For synthetic, “on‑the‑fly” reasoning tasks (e.g., arithmetic, word unscrambling), few‑shot examples consistently raise performance, whereas one‑shot or zero‑shot settings are weaker.  
+* On WebQuestions, few‑shot GPT‑3 scores **41.5 %**, approaching the performance of fine‑tuned T5‑11B models (44.7 %).  
+
+Overall, GPT‑3 performs well in few‑shot scenarios, often surpassing or matching fine‑tuned baselines, with performance that scales with model size.",False,1.0,0
+How many model sizes did the GPT-3 paper train?,"8, from 125 million to 175 billion parameters",The GPT‑3 paper trained **8 different model sizes**.,False,1.0,1
+What does LoRA freeze during fine-tuning?,The pre-trained model weights,"LoRA freezes the original model’s weights (the shared parameters of the pretrained network) during fine‑tuning, training only the injected low‑rank matrices A and B.",False,1.0,1
+What does LoRA inject into each layer of the Transformer?,Trainable low-rank decomposition matrices,LoRA injects low‑rank update matrices into each layer of the Transformer.,False,1.0,1
+By how much does LoRA reduce the number of trainable parameters compared to fine-tuning GPT-3 175B?,About 10000 times,"LoRA reduces the number of trainable parameters by **up to 10,000×** compared to full fine‑tuning of GPT‑3 175B.",False,1.0,1
+How much did LoRA reduce VRAM use when training GPT-3 175B?,From 1.2TB to 350GB,LoRA cut the VRAM needed for GPT‑3 175B training from **1.2 TB down to 350 GB** – a reduction of roughly **850 GB**.,False,1.0,1
+Which attention weight matrices does LoRA adapt in its main experiments?,The query and value projection matrices,In the main experiments LoRA adapts the **query (Wq) and value (Wv) weight matrices** of the self‑attention module.,False,1.0,1
+What two types of memory does RAG combine?,Parametric memory (a pre-trained seq2seq model) and non-parametric memory (a dense vector index of Wikipedia),RAG combines **parametric memory** (the model’s internal parameters) and **non‑parametric memory** (an external document index).,False,1.0,1
+What is the difference between RAG-Sequence and RAG-Token?,"RAG-Sequence uses the same retrieved document for the whole output, while RAG-Token can use a different document for each token","**RAG‑Sequence**  
+- Treats the retrieved document as a single latent variable for the whole output.  
+- The generator produces the probability of the entire target sequence conditioned on that one document, and the model marginalises over the top‑K documents to get \(p(y|x)\).
+
+**RAG‑Token**  
+- Allows a different retrieved document to be chosen for each token in the output.  
+- For every target token the generator samples a latent document, computes the token probability conditioned on that document, and then marginalises over the top‑K documents for each token.
+
+In short, RAG‑Sequence uses one document for the whole sequence, whereas RAG‑Token can switch documents token‑by‑token. (For sequence‑classification tasks, where the target is a single token, the two become equivalent.)",False,1.0,1
+How is the Wikipedia knowledge source split in RAG?,"Into 100-word chunks, giving about 21 million documents","The Wikipedia knowledge source is split by dividing each article into disjoint chunks of 100 words each, resulting in about 21 million documents.",False,1.0,1
+Which model does RAG use as its generator?,BART,RAG uses a **BART** model as its generator.,False,1.0,1
+What parameter sizes were the released Llama 2 models?,"7B, 13B and 70B","The released Llama 2 models come in three parameter sizes: **7 B, 13 B, and 70 B**.",False,1.0,1
+How many tokens was Llama 2 pretrained on?,2 trillion tokens,Llama 2 was pretrained on **2 trillion tokens**.,False,1.0,1
+What is the context length of Llama 2?,4096 tokens,"The context length of Llama 2 is **4,096 tokens**.",False,1.0,1
+Which attention technique do the larger Llama 2 models use to improve inference scalability?,Grouped-query attention (GQA),The larger Llama 2 models use **grouped‑query attention (GQA)** to improve inference scalability.,False,1.0,1
+Who won the 2018 football World Cup?,Not found in documents,Not found in documents.,True,,1
+What is the capital of Australia?,Not found in documents,Not found in documents.,True,,1
+What is a good recipe for chocolate cake?,Not found in documents,Not found in documents.,True,,1
