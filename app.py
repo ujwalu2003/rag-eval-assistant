@@ -1,4 +1,12 @@
+import os
+import sys
+import subprocess
 import streamlit as st
+
+if not os.path.exists("db"):
+    with st.spinner("First start: building the search index (a few minutes)..."):
+        subprocess.run([sys.executable, "ingest.py"], check=True)
+
 from rag import answer
 
 K = 8            # change after k8_strict confirms the best setting
