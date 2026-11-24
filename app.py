@@ -35,7 +35,7 @@ if question:
     if "Not found" not in text:
         st.subheader("Sources")
         seen = set()
-        for s in sources:
+        for s in sources[:3]:
             name = s["source"].replace("data\\", "").replace("data/", "")
             name = name.replace(".pdf.pdf", "").replace(".pdf", "")
             key = (name, s["page"])

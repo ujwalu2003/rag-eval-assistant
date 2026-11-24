@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 MODEL = "openai/gpt-oss-20b"
 
 model = SentenceTransformer("BAAI/bge-small-en-v1.5")
-reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+reranker = None
 collection = chromadb.PersistentClient("db").get_collection("docs")
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
@@ -47,10 +47,10 @@ def answer(question, k=4, rerank=False, fetch=15):
     sources = results["metadatas"][0]
 
     if rerank:
+        global reranker
+        if reranker is None:
+            reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
         scores = reranker.predict([(question, c) for c in chunks])
-        order = sorted(range(len(chunks)), key=lambda i: scores[i], reverse=True)[:k]
-        chunks = [chunks[i] for i in order]
-        sources = [sources[i] for i in order]
 
     context = "\n\n".join(chunks)
     prompt = (
